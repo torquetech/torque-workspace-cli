@@ -46,7 +46,7 @@ def initialize_venv(root: str):
                            check=True,
                            capture_output=True)
 
-        site_packages = p.stdout.decode('utf8')
+        site_packages = p.stdout.decode("utf8")
         site_packages = site_packages.strip()
 
     except subprocess.CalledProcessError as exc:
@@ -85,7 +85,7 @@ def install_deps(root: str):
 
     cmd = [
         ".torque/local/venv/bin/python",
-        "-m", "torque.install_deps"
+        "-m", "torque.hooks.install_deps"
     ]
 
     env = os.environ | {
